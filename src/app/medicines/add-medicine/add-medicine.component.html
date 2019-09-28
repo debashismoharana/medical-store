@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>
+      Add a medicine
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="addMedicine">
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input type="text" formControlName="name" placeholder="Enter name of medicine"></ion-input>
+    <ion-label position="stacked">Price</ion-label>
+    <ion-input type="number" formControlName="price" placeholder="Enter price"></ion-input>
+    <ion-label position="stacked">Quantity</ion-label>
+    <ion-input type="number" formControlName="stock" placeholder="Enter quantity"></ion-input>
+    <ion-button position="center" (click)="addMedicines()">Add Medicine</ion-button>
+  </form>
+</ion-content>

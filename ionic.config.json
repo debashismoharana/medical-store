@@ -1,5 +1,7 @@
 {
   "name": "sidmenuIonic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

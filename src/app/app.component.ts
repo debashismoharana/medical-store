@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Observable } from 'rxjs';
+
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -17,18 +20,21 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
+      title: 'Medicines',
+      url: '/medicines',
       icon: 'list'
     }
   ];
-
+  public items: Observable<any[]>;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    db: AngularFirestore
   ) {
     this.initializeApp();
+    this.items = db.collection('/medicines').valueChanges();
+    console.log(this.items);
   }
 
   initializeApp() {
